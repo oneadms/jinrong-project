@@ -1,13 +1,19 @@
 <template>
 	<view class="content">
 
-    <u-swiper :list="bannerList" style="width: 100%;height: 400px"></u-swiper>
-    <u-input
+    <u-swiper
+        style="position: absolute;width: 100%;height: 450px"
+        :list="bannerList"
+
+    ></u-swiper>
+    <u--input
         placeholder="请输入内容"
         border="surround"
         v-model="value"
         @change="change"
-    ></u-input>
+    ></u--input>
+    <u-icon name="photo" color="#2979ff" size="28"></u-icon>
+
 
 
 	</view>
@@ -22,9 +28,9 @@
 				title: '新闻',
         bannerList:[
 
-        'https://cdn.uviewui.com/uview/swiper/swiper1.png',
-        'https://cdn.uviewui.com/uview/swiper/swiper2.png',
-        'https://cdn.uviewui.com/uview/swiper/swiper3.png',
+          require("@/static/images/img.png"),
+          require("@/static/images/img.png"),
+          require("@/static/images/img.png")
 
         ]
 			}
@@ -33,6 +39,7 @@
 
 		},
 		methods: {
+
 
 		}
 	}
