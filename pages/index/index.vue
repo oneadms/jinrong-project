@@ -1,9 +1,15 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+
+    <u-swiper :list="bannerList" style="width: 100%;height: 400px"></u-swiper>
+    <u-input
+        placeholder="请输入内容"
+        border="surround"
+        v-model="value"
+        @change="change"
+    ></u-input>
+
+
 	</view>
 </template>
 
@@ -11,7 +17,16 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+
+        keyword:'',
+				title: '新闻',
+        bannerList:[
+
+        'https://cdn.uviewui.com/uview/swiper/swiper1.png',
+        'https://cdn.uviewui.com/uview/swiper/swiper2.png',
+        'https://cdn.uviewui.com/uview/swiper/swiper3.png',
+
+        ]
 			}
 		},
 		onLoad() {
