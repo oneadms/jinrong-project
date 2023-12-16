@@ -9,7 +9,15 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}
-	],
+      ,
+      {
+  "path": "pages/reg/reg",
+  "style": {
+    "navigationBarTitleText": "",
+    "enablePullDownRefresh": true
+  }
+}
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
