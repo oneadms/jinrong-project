@@ -17,7 +17,15 @@
     "enablePullDownRefresh": true
   }
 }
-    ],
+		,
+		{
+  "path": "pages/login/login",
+  "style": {
+    "navigationBarTitleText": "",
+    "enablePullDownRefresh": true
+  }
+}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
