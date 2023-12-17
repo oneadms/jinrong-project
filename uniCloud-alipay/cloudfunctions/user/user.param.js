@@ -7,4 +7,5 @@ const clientInfo = { // 模拟clientInfo
   userAgent: 'xx MicroMessenger/xxx', // 客户端ua，不传时默认为 HBuilderX
   uniIdToken: 'xxx'
 }
-login("xiaochen","xiaochen")
+// login("oneadm","97173fccea1ff427a898681e8d931cc4")
+userInfo("657ec24ade2aa759738a90bc")
