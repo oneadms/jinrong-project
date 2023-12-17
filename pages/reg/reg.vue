@@ -34,7 +34,7 @@
     <view style="padding: 55px">
       <u-button  type="success" size="large" text="确认" @click="register"></u-button>
     </view>
-
+    <u-notify ref="uNotify" ></u-notify>
   </view>
 
 </template>
@@ -59,9 +59,30 @@ export default {
 
       user.register(this.form).then(resp=>{
         console.log(resp);
-        uni.showToast({
-          title: resp?"注册成功":"注册失败，用户已经存在"
-        })
+        const {code,msg}=resp
+        if (code === 0) {
+          this.$refs.uNotify.show({
+            top: 10,
+            type: 'success',
+            color: '#000',
+            bgColor: '#e8e8e8',
+            message: msg,
+            duration: 1000 * 3,
+            fontSize: 20,
+            safeAreaInsetTop:true
+          })
+        }else{
+          this.$refs.uNotify.show({
+            top: 10,
+            type: 'error',
+            color: '#000',
+            bgColor: '#e8e8e8',
+            message: msg,
+            duration: 1000 * 3,
+            fontSize: 20,
+            safeAreaInsetTop:true
+          })
+        }
       })
     }
   }

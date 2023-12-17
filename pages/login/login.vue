@@ -6,6 +6,7 @@
 
     <view style="padding: 40px">
       <u--input
+          v-model="form.username"
           style="margin-top: 50px;"
           placeholder="请输入手机号码："
           border="surround"
@@ -40,6 +41,7 @@
 
     <view style="padding: 40px;margin-top: -15px;">
       <u--input
+          v-model="form.password"
           placeholder="请输入密码："
           border="surround"
           clearable
@@ -49,22 +51,27 @@
 
     <view style="width: 100%;height: 10px"></view>
     <view style="padding: 85px; margin-top: -100px">
-      <u-button  type="primary" size="large" text="登录"></u-button>
+      <u-button  type="primary" size="large" text="登录" @click="login"></u-button>
     </view>
 
     <view style="padding: 85px; margin-top: -150px">
-      <u-button  type="success" size="large" text="注册"></u-button>
+      <u-button  type="success" size="large" text="注册" @click="register"></u-button>
     </view>
-
+    <u-notify ref="uNotify" ></u-notify>
 
 
   </view>
 </template>
 
 <script>
+const user = uniCloud.importObject('user')
 export default {
   data() {
     return {
+      form:{
+        username:'',
+        password:''
+      },
       value: '',
       // 基本案列数据
       radiolist1: [{
@@ -87,9 +94,42 @@ export default {
     groupChange(n) {
       console.log('groupChange', n);
     },
+    login() {
+      user.login(this.form.username,this.form.password).then(resp=>{
+        const {code, msg} = resp;
+        if (code === 0) {
+          this.$refs.uNotify.show({
+            top: 10,
+            type: 'success',
+            color: '#000',
+            bgColor: '#e8e8e8',
+            message: msg,
+            duration: 1000 * 3,
+            fontSize: 20,
+            safeAreaInsetTop:true
+          })
+        }else{
+          this.$refs.uNotify.show({
+            top: 10,
+            type: 'error',
+            color: '#000',
+            bgColor: '#e8e8e8',
+            message: msg,
+            duration: 1000 * 3,
+            fontSize: 20,
+            safeAreaInsetTop:true
+          })
+        }
+      })
+    },
     radioChange(n) {
       console.log('radioChange', n);
-    }
+    },
+    register() {
+      uni.navigateTo({
+        url:"/pages/reg/reg"
+      })
+    },
   }
 }
 </script>
