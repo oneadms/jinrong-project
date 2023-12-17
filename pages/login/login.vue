@@ -117,7 +117,7 @@ export default {
             safeAreaInsetTop:true
           })
           uni.navigateTo({
-            url:"/pages/index/index"
+            url:"/pages/my/my"
           })
         }else{
           this.$refs.uNotify.show({
