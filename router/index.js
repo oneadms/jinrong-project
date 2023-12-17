@@ -2,7 +2,7 @@
 // 页面白名单，不受拦截
 const whiteList = [
     '/pages/login/login',
-    '/pages/register/register'
+    '/pages/reg/reg'
 ]
 const user = uniCloud.importObject('user')
 async function hasPermission (url) {

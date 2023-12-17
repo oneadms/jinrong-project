@@ -1,11 +1,7 @@
 <template>
 	<view class="content">
-
-    <swiper>
-      <swiper-item  v-for="item in bannerList">
-          <image  :src="item" style="width: 100%;height: 100%"/>
-      </swiper-item>
-    </swiper>
+    <u-swiper :list="bannerList"
+    style="height: 400px"/>
 	
 
 	</view>
