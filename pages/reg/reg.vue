@@ -41,6 +41,7 @@
 
 <script>
 const user = uniCloud.importObject('user')
+import {md5} from "js-md5";
 export default {
   data() {
     return {
@@ -56,8 +57,11 @@ export default {
       console.log('change', e);
     },
     register(){
-
-      user.register(this.form).then(resp=>{
+      var encryption={
+        username: this.form.username,
+        password:  md5(this.form.password)
+      }
+      user.register(encryption).then(resp=>{
         console.log(resp);
         const {code,msg}=resp
         if (code === 0) {

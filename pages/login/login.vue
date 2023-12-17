@@ -41,6 +41,7 @@
 
     <view style="padding: 40px;margin-top: -15px;">
       <u--input
+          type="password"
           v-model="form.password"
           placeholder="请输入密码："
           border="surround"
@@ -64,6 +65,8 @@
 </template>
 
 <script>
+import {md5} from "js-md5";
+
 const user = uniCloud.importObject('user')
 export default {
   data() {
@@ -95,9 +98,14 @@ export default {
       console.log('groupChange', n);
     },
     login() {
-      user.login(this.form.username,this.form.password).then(resp=>{
-        const {code, msg} = resp;
+      var encryption={
+        username: this.form.username,
+        password:  md5(this.form.password)
+      }
+      user.login(encryption.username,encryption.password).then(resp=>{
+        const {code, msg,data} = resp;
         if (code === 0) {
+          uni.setStorageSync("token",data.token)
           this.$refs.uNotify.show({
             top: 10,
             type: 'success',
@@ -107,6 +115,9 @@ export default {
             duration: 1000 * 3,
             fontSize: 20,
             safeAreaInsetTop:true
+          })
+          uni.navigateTo({
+            url:"/pages/index/index"
           })
         }else{
           this.$refs.uNotify.show({

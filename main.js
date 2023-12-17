@@ -4,6 +4,7 @@ import App from './App'
 import Vue from 'vue'
 import './uni.promisify.adaptor'
 import uView from 'uview-ui'
+import './router/index.js';
 Vue.use(uView)
 uni.$u.config.unit = 'rpx'
 Vue.config.productionTip = false
