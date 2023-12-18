@@ -116,7 +116,7 @@ export default {
             fontSize: 20,
             safeAreaInsetTop:true
           })
-          uni.navigateTo({
+          uni.switchTab({
             url:"/pages/my/my"
           })
         }else{

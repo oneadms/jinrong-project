@@ -53,7 +53,8 @@ module.exports = {
 		 await db.collection("user").add({
 			username:username,
 			password:password,
-			phone:phone
+			phone:phone,
+			role:0
 		})
 		
 	   return {
@@ -117,7 +118,7 @@ module.exports = {
 	   return {
 		   code:0,
 		   msg:"获取成功",
-		   data: {username:userInfo.username}
+		   data: {username:userInfo.username,role:userInfo.role}
 
 	   }
 

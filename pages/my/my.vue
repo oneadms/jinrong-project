@@ -6,47 +6,30 @@
 
     <view style="padding: 40px">
       <u-avatar size="80px" :src="src"></u-avatar>
-      <b><h1>管理员名称</h1></b>
+      <b><h1>{{ userInfo.username }}</h1></b>
+    </view>
+
+    <view style="padding: 40px; height: 30px" v-if="userInfo.role===0">
+      <h2>收益统计</h2>
+      <u-text>{{Math.random()*10000}}</u-text>
     </view>
 
     <view>
-     <b> <u--text margin="40px" color="#000" size="16px" text="用户管理"></u--text></b>
+     <b> <u--text margin="40px" color="#000" size="16px" :text="userInfo.role===0?'我的服务':'用户管理'"></u--text></b>
       <u-line hairline="true" color="#d6d7d9" margin="-25px 0px"></u-line>
     </view>
 
-    <view style="padding: 40px">
+    <view style="padding: 40px" >
       <u-cell-group :border="false" >
-        <u-cell
-            title="用户查询"
+        <u-cell v-for="item in serviceList[userInfo.role]"
+            :title="item.title"
             isLink
-            url="/pages/componentsB/tag/tag"
         ></u-cell>
       </u-cell-group>
 
 
     </view>
 
-    <view style="padding: 40px;margin-top: -60px">
-
-      <u-cell-group :border="false" >
-        <u-cell
-            title="权限修改"
-            isLink
-            url="/pages/componentsB/tag/tag"
-        ></u-cell>
-      </u-cell-group>
-    </view>
-
-    <view style="padding: 40px; margin-top: -60px">
-
-      <u-cell-group :border="false" >
-        <u-cell
-            title="反馈中心"
-            isLink
-            url="/pages/componentsB/tag/tag"
-        ></u-cell>
-      </u-cell-group>
-    </view>
 <!--<tabbar ></tabbar>-->
 	</view>
 </template>
@@ -55,9 +38,50 @@
 	export default {
 		data() {
 			return {
+        userInfo:{},
+        serviceList:[
+
+          [
+            {
+              title:"购买记录",
+            },
+            {
+              title:"在线客服",
+            } ,{
+            title:"个人信息",
+          }
+          ],
+          [
+            {
+              title:"用户查询",
+            },
+            {
+              title:"权限修改",
+            } ,{
+            title:"反馈中心",
+          }
+
+          ]
+
+
+
+
+
+        ],
+          //管理员
+
+
+
+
+
         src: 'https://cdn.uviewui.com/uview/album/1.jpg'
 			}
 		},
+    onLoad() {
+
+      this.userInfo=uni.getStorageSync("userInfo");
+      console.log(this.userInfo)
+    },
 		methods: {
 			
 		}

@@ -12,7 +12,7 @@ async function hasPermission (url) {
         return false;
     }
      let resp =await user.userInfo(token);
-
+    console.log(resp)
     const {code, msg, data} = resp;
     const isLogin = code == 0;
     if (whiteList.indexOf(url) !== -1 || isLogin) {

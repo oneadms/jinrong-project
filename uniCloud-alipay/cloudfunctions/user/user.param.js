@@ -8,4 +8,4 @@ const clientInfo = { // 模拟clientInfo
   uniIdToken: 'xxx'
 }
 // login("oneadm","97173fccea1ff427a898681e8d931cc4")
-userInfo("657ec24ade2aa759738a90bc")
+userInfo("65804ffb609a658d562acc4c")
