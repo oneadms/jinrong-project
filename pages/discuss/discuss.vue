@@ -7,6 +7,16 @@
         height="38px"
         placeholder="搜索"></u-search>
 
+    <view style="padding: 20px">
+      <u-avatar size="60px" :src="src" shape="square"></u-avatar>
+      <h1>用户名</h1>
+      <p>发表时间</p>
+
+
+
+    </view>
+
+
 
   </view>
 </template>
@@ -15,7 +25,7 @@
 	export default {
 		data() {
 			return {
-				
+        src: 'https://cdn.uviewui.com/uview/album/1.jpg'
 			}
 		},
 		methods: {
@@ -25,5 +35,14 @@
 </script>
 
 <style>
-
+h1 {
+  position: relative;
+  top: -50px;
+  left: 65px;
+}
+p {
+  position: relative;
+  top: -45px;
+  left: 65px;
+}
 </style>
