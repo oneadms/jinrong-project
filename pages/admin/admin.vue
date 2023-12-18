@@ -49,7 +49,7 @@
         ></u-cell>
       </u-cell-group>
     </view>
-
+<!--<tabbar ></tabbar>-->
   </view>
 </template>
 
