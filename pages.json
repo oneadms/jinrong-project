@@ -31,10 +31,19 @@
 			}
 		},
 		{
-			"path": "pages/admin/admin",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+			"path" : "pages/product/product",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/buy/buy",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
 			}
 		}
 	],
@@ -66,13 +75,6 @@
 				"selectedIconPath": "./static/images/home.png",
 				"isDot": true,
 				"customIcon": false
-			},{
-				"pagePath": "pages/admin/admin",
-				"text": "讨论",
-				"iconPath": "./static/images/comment.png",
-				"selectedIconPath": "./static/images/comment.png",
-				"customIcon": false,
-				"midButton": true
 			},
 			{
 				"iconPath": "./static/images/my.png",
